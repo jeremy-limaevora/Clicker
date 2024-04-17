@@ -1,0 +1,25 @@
+
+
+.none{
+    border:none;
+    outline: none;
+    background-color: rgb(255, 255, 255); /* Changez cette couleur selon vos préférences */
+    border: none; /* Enlève la bordure */
+    padding: 10px 20px; /* Ajustez l'espacement à l'intérieur du bouton */
+    text-align: center; /* Centre le texte */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+.coins-container {
+    display: flex;
+    align-items: center;
+}
+
+.coins-container img {
+    margin-right: 5px; /* Adjust this value as needed */
+    width: 50px; /* Définir la largeur souhaitée */
+    height: auto; /* Pour conserver les proportions de l'image */
+}
