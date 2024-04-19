@@ -1,7 +1,8 @@
 const button = document.querySelector("button");
 const clickCountElement = document.getElementById("clickCount");
-let coins = 0;
+let coins = getCoins();
 let clickCounter = 0;
+let autoClicks = 0;
 
 // Fonction pour récupérer le compteur de clics et de pièces depuis le localStorage ou initialiser à 0 si absent
 function getClickCount() {
@@ -22,6 +23,7 @@ function saveClickCount(clickCount) {
 // Fonction pour sauvegarder le nombre de pièces dans le localStorage
 function saveCoins(coins) {
     localStorage.setItem('coins', coins);
+    console.log(`Pièces sauvegardées: ${coins}`); // Pour vérifier
 }
 
 // Fonction pour afficher un message lorsqu'une série de 20 clics est atteinte
@@ -73,6 +75,7 @@ clickCountElement.textContent = `Tu as ${clickCount} clic`;
 function updateCoinsDisplay() {
     const coinsDisplay = document.getElementById("coinsDisplay");
     coins = getCoins(); // Récupérer le nombre de pièces depuis le localStorage
+    console.log(`Pièces récupérées: ${coins}`); // Pour vérifier
     coinsDisplay.textContent = `Coins: ${coins}`;
 }
 
@@ -92,4 +95,39 @@ resetButton.addEventListener("click", () => {
     coins = 0;
     saveCoins(coins);
     updateCoinsDisplay();
+
+    // Réinitialiser le nombre de clics automatiques à 0
+    autoClicks = 0;
+    // Mettre à jour l'affichage des clics automatiques si nécessaire
 });
+
+function buyAutoClick() {
+    const cost = 10; // Coût en pièces pour acheter un clic automatique "Impôt"
+    if (coins >= cost) {
+        coins -= cost; // Déduire le coût de l'achat du total de pièces
+        autoClicks++; // Augmenter le nombre de clics automatiques "Impôt"
+        saveCoins(coins); // Mettre à jour le total de pièces dans le localStorage
+        updateCoinsDisplay(); // Mettre à jour l'affichage du total de pièces
+    } else {
+        alert("Pas assez de pièces pour acheter un clic automatique.");
+    }
+}
+
+setInterval(function() {
+    for (let i = 0; i < autoClicks; i++) {
+        autoClick();
+    }
+}, 2000); // Exécute les clics automatiques toutes les 2 secondes
+
+function autoClick() {
+    clickCount += 2; // Ajoute 2 clics à chaque fois
+    coins += 1; // Ajoute 1 pièce à chaque fois
+    saveClickCount(clickCount);
+    saveCoins(coins); // Sauvegarde le nombre de pièces
+    updateClickCountDisplay(); // Mettre à jour l'affichage du nombre de clics
+    updateCoinsDisplay();
+}
+
+function updateClickCountDisplay() {
+    clickCountElement.textContent = `Tu as ${clickCount} clic`;
+}
