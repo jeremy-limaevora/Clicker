@@ -1,74 +1,50 @@
-
-
+/* Style pour les boutons sans bordure et sans contour */
 .none{
-    border:none;
-    outline: none;
-    background-color: rgb(255, 255, 255); /* Changez cette couleur selon vos préférences */
-    border: none; /* Enlève la bordure */
-    padding: 10px 20px; /* Ajustez l'espacement à l'intérieur du bouton */
-    text-align: center; /* Centre le texte */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-
+    border:none; /* Enlève la bordure */
+    outline: none; /* Enlève le contour */
+    background-color: rgb(255, 255, 255); /* Définit la couleur de fond du bouton */
+    padding: 10px 20px; /* Ajuste l'espacement à l'intérieur du bouton */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    display: inline-block; /* Permet au bouton de s'aligner comme un élément de bloc inline */
+    font-size: 16px; /* Définit la taille de la police du texte à l'intérieur du bouton */
+    margin: 4px 2px; /* Ajuste l'espacement autour du bouton */
+    cursor: pointer; /* Change le curseur en une main lorsqu'il survole le bouton */
 }
+
+/* Style pour le conteneur des coins, en utilisant Flexbox pour l'alignement */
 .coins-container {
-    display: flex;
-    align-items: center;
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    align-items: center; /* Centre verticalement les éléments à l'intérieur du conteneur */
 }
 
+/* Style pour les images à l'intérieur du conteneur des coins */
 .coins-container img {
-    margin-right: 5px; /* Adjust this value as needed */
-    width: 50px; /* Définir la largeur souhaitée */
-    height: auto; /* Pour conserver les proportions de l'image */
+    margin-right: 5px; /* Ajuste l'espacement à droite de l'image */
+    width: 50px; /* Définit la largeur de l'image */
+    height: auto; /* Conserve les proportions de l'image */
 }
 
-
-.none{
-    border:none;
-    outline: none;
-    background-color: transparent; /* Changez cette couleur selon vos préférences */
-    border: none; /* Enlève la bordure */
-    padding: 10px 20px; /* Ajustez l'espacement à l'intérieur du bouton */
-    text-align: center; /* Centre le texte */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-
-}
-.coins-container {
-    display: flex;
-    align-items: center;
-}
-
-.coins-container img {
-    margin-right: 5px; /* Adjust this value as needed */
-    width: 50px; /* Définir la largeur souhaitée */
-    height: auto; /* Pour conserver les proportions de l'image */
-}
-
-
+/* Style pour les éléments flottants à droite */
 .droite{
-    float: right;
-    margin-top: 5px;
-    padding-top: auto;
+    float: right; /* Flotte l'élément à droite */
+    margin-top: 5px; /* Ajuste l'espacement en haut de l'élément */
+    padding-top: auto; /* Ajuste l'espacement en haut de l'élément */
 }
 
-
+/* Style pour les cartes */
 .card {
-    width: 290px;
-    height: 500px;
-    background: white;
-    border-radius: 10px;
-    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   }
-   
-   .shadow {
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
-                0 0  0 2px rgb(190, 190, 190),
-                0.3em 0.3em 1em rgba(0,0,0,0.3);
-   }
-   
+    width: 290px; /* Définit la largeur de la carte */
+    height: 500px; /* Définit la hauteur de la carte */
+    background: white; /* Définit la couleur de fond de la carte */
+    border-radius: 10px; /* Arrondit les coins de la carte */
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animation de l'arrondi des coins */
+}
+
+/* Style pour l'ombre de la carte */
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), /* Ombre interne */
+                0 0  0 2px rgb(190, 190, 190), /* Contour de la carte */
+                0.3em 0.3em 1em rgba(0,0,0,0.3); /* Ombre externe */
+}
+
    
