@@ -131,3 +131,37 @@ function autoClick() {
 function updateClickCountDisplay() {
     clickCountElement.textContent = `Tu as ${clickCount} clic`;
 }
+
+// Fonction pour jouer le son lorsque le bouton "citoyen" est cliqué
+function playCoinSound() {
+    const coinSound = document.getElementById("coinSound");
+    coinSound.currentTime = 0; // Rembobine le son au début
+    coinSound.play(); // Joue le son
+}
+
+// Modifiez la fonction autoCoins pour ajouter des pièces toutes les 2 secondes
+function autoCoins() {
+    coins += 2; // Ajoute 2 pièces à chaque fois
+    saveCoins(coins); // Sauvegarde le nombre de pièces
+    updateCoinsDisplay(); // Met à jour l'affichage des pièces
+}
+
+// Ajoutez un gestionnaire d'événements pour le bouton "citoyen"
+const citoyenButton = document.getElementById("citoyenButton");
+citoyenButton.addEventListener("click", () => {
+    playCoinSound(); // Joue le son
+    buyCitizen(); // Achat d'un citoyen
+});
+
+// Fonction pour acheter un citoyen
+function buyCitizen() {
+    const cost = 100; // Coût en pièces pour acheter un citoyen
+    if (coins >= cost) {
+        coins -= cost; // Déduire le coût de l'achat du total de pièces
+        autoClicks++; // Augmenter le nombre de clics automatiques (citoyens)
+        saveCoins(coins); // Mettre à jour le total de pièces dans le localStorage
+        updateCoinsDisplay(); // Mettre à jour l'affichage du total de pièces
+    } else {
+        alert("Pas assez de pièces pour acheter un citoyen.");
+    }
+}

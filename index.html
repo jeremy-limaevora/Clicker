@@ -11,10 +11,10 @@
 <body>
    <main>
     <center>
-        <button onclick="displayFavorites()" class="none"> <img src="macron.png"> </button>
+        <button onclick="displayFavorites()" class="none"> <img src="image/macron.png"> </button>
         <p id="clickCount"></p>
         <div class="coins-container">
-            <img src="route-fifty-lead-image.jpg" alt="Coins image">
+            <img src="image/route-fifty-lead-image.jpg" alt="Coins image">
             <p id="coinsDisplay">Coins: 0</p>
         </div>
         <br><br><br><br>
@@ -27,7 +27,7 @@
     <button onclick="buyAutoClick()" class="none">Impots</button>
 
     <br>
-    <button class="none">citoyens</button>
+    <button id="citoyenButton" class="none">citoyens</button> <!-- Modifiez l'identifiant en "citoyenButton" -->
     <br>
     <button class="none">Ursaf</button>
     <br>
@@ -41,13 +41,17 @@
 
 </div>
 
+<!-- Insérez le lecteur audio ici -->
+<audio id="coinSound">
+  <source src="mes-chers-compatriotes.mp4" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-    <footer>
-        <center>
+<footer>
+    <center>
         <b><button id="resetButton" class="none">Rebirth</b></button>
     </center>
-    </footer>
-
+</footer>
  
 </body>
 </html>
