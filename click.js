@@ -84,7 +84,8 @@ function updateClickCount() {
 
 const backgroundImages = [
     'img/elysée.jpg',
-    'img/maison-bl.jpg',
+    'img/vieux port.jpg',
+    'img/tour-eiffel.jpg',
     
     // Ajoutez d'autres chemins d'image ici
 ];
