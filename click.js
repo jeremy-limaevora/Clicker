@@ -165,3 +165,82 @@ function buyCitizen() {
         alert("Pas assez de pièces pour acheter un citoyen.");
     }
 }
+
+const ursafButton = document.getElementById("ursafButton");
+ursafButton.addEventListener("click", buyUrsaf);
+
+
+function buyUrsaf() {
+    const cost = 150; // Coût en pièces pour acheter un Ursaf
+    const autoClicksPerUrsaf = 150; // Nombre de clics automatiques par Ursaf
+
+    if (coins >= cost) {
+        coins -= cost; // Déduire le coût de l'achat du total de pièces
+        autoClicks += autoClicksPerUrsaf; // Augmenter le nombre de clics automatiques
+        saveCoins(coins); // Mettre à jour le total de pièces dans le localStorage
+        updateCoinsDisplay(); // Mettre à jour l'affichage du total de pièces
+        updateAutoClicksDisplay(); // Mettre à jour l'affichage du nombre de clics automatiques
+    } else {
+        alert("Pas assez de pièces pour acheter un Ursaf.");
+    }
+}
+
+// Fonction pour mettre à jour l'affichage du nombre de clics automatiques
+function updateAutoClicksDisplay() {
+    const autoClicksDisplay = document.getElementById("autoClicksDisplay");
+    autoClicksDisplay.textContent = `Clics automatiques: ${autoClicks}`;
+}
+updateAutoClicksDisplay();
+
+function buyHussier() {
+    const cost = 100; // Coût en pièces pour acheter un Hussier
+    const autoClicksPerHussier = 10; // Nombre de clics automatiques par Hussier
+
+    if (coins >= cost) {
+        coins -= cost; // Déduire le coût de l'achat du total de pièces
+        autoClicks += autoClicksPerHussier; // Augmenter le nombre de clics automatiques
+        saveCoins(coins); // Mettre à jour le total de pièces dans le localStorage
+        updateCoinsDisplay(); // Mettre à jour l'affichage du total de pièces
+        updateAutoClicksDisplay(); // Mettre à jour l'affichage du nombre de clics automatiques
+    } else {
+        alert("Pas assez de pièces pour acheter un Hussier.");
+    }
+}
+
+const hussierButton = document.getElementById("hussierButton");
+hussierButton.addEventListener("click", buyHussier);
+updateAutoClicksDisplay();
+
+
+
+
+
+
+
+document.getElementById('jeremistreButton').addEventListener('click', function() {
+    var imageElement = document.querySelector("button img"); // Sélectionne l'élément <img> à l'intérieur du bouton
+    if (imageElement.src.endsWith('../img/macron.png')) {
+        imageElement.src = '../img/jeremistre.png'; 
+    } else {
+        imageElement.src = '../img/macron.png'; // Changez 'macron.png' par le chemin de votre première image
+    }
+});
+
+ // Changer le fond à chaque clic
+ const backgroundImages = [
+    '../img/elysée.jpg',
+    '../img/maison-bl.jpg'
+];
+
+// Sélectionne une image de fond au hasard
+function getRandomBackgroundImage() {
+    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    return backgroundImages[randomIndex];
+}
+
+// Gestionnaire d'événements pour le bouton "Changer de fond"
+document.getElementById('changeBackgroundButton').addEventListener('click', function() {
+    const newBackgroundImage = getRandomBackgroundImage();
+    document.body.style.backgroundImage = `url(${newBackgroundImage})`;
+    document.body.style.backgroundSize = 'cover'; // Ajustez la taille du fond si nécessaire
+});
